@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>File name:</b>
+  <%= @paper.file_name %>
+</p>
+
+<p>
+  <b>File path:</b>
+  <%= @paper.file_path %>
+</p>
+
+<p>
+  <b>File city:</b>
+  <%= @paper.file_city %>
+</p>
+
+<p>
+  <b>File user:</b>
+  <%= @paper.file_user %>
+</p>
+
+<p>
+  <b>File status:</b>
+  <%= @paper.file_status %>
+</p>
+
+<p>
+  <b>File type:</b>
+  <%= @paper.file_type %>
+</p>
+
+<p>
+  <b>File memo:</b>
+  <%= @paper.file_memo %>
+</p>
+
+
+<%= link_to '编辑', edit_paper_path(@paper) %> |
+<%= link_to '返回', papers_path %>

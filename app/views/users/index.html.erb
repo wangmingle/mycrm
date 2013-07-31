@@ -1,0 +1,30 @@
+<%- model_class = User -%>
+  <h4>用户列表</h4>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>邮箱</th>
+      <th>权限</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_path(user) , :class => 'btn btn-mini btn-success', :style => "color:white" %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_path(user),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger', :style => "color:white"  %>
+        </td>
+      </tr>
+     <%end%>
+  </tbody>
+</table>
+

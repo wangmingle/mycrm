@@ -1,0 +1,16 @@
+LOG:  database system was shut down at 2013-07-29 08:50:55 CST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "pape" does not exist at character 37
+STATEMENT:  select id, file_user,file_name from pape
+	rs;
+ERROR:  syntax error at or near "=" at character 13
+STATEMENT:  update role ='' where id =3
+	;
+ERROR:  syntax error at or near "customers" at character 18
+STATEMENT:  insert into name customers  values ('1');
+ERROR:  syntax error at or near "name" at character 23
+STATEMENT:  insert into customers name values ('1');
+ERROR:  null value in column "created_at" violates not-null constraint
+DETAIL:  Failing row contains (41, 1, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).
+STATEMENT:  insert into customers (name) values ('1');

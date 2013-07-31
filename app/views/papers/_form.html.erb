@@ -1,0 +1,38 @@
+<%= form_for(@paper) do |f| %>
+  <% if @paper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
+
+      <ul>
+      <% @paper.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :城市 %>
+    <%= f.collection_select(:city_id,City.all,:id,:name)%>
+  </div>
+
+  <div class="field">
+    <%= f.label :按照录入人 %>
+    <%= f.text_field :file_user, :readonly => true %>
+  </div>
+  <div class="field">
+    <%= f.label :库类型 %>
+    <%= select_tag 'paper[file_status]', options_for_select([['重点库', 1], ['会员库', 0],['临时库', 2], ['垃圾库', 3]], @paper.file_status), :style=>"width:220px;" %>
+  </div>
+  <div class="field">
+    <%= f.label :文件 %>
+    <%= f.file_field :file_path %>
+  </div>
+  <div class="field">
+    <%= f.label :备注 %>
+    <%= f.text_area :file_memo, cols: 15, rows: 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "提交"%>
+  </div>
+
+<% end %>

@@ -1,0 +1,30 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+.clear{clear:both;}
+.padd{padding:8px;}
+.color1{color:#F63;}
+.index{margin:2%;}
+.statement{margin:10px 0;}
+.item{ border:1px solid #ccc; border-radius:10px; margin:15px 0; padding:0 0px;}
+.item .first,.item .mid,.item .last{ line-height:20px;}
+.item .first{ border-bottom:1px solid #ccc;}
+.first .name{ float:left;width:70%;font-size:16px;}
+.first .result{ float:left; width:30%; text-align:center; color:#F63;}
+.first .lottery{color:#F63; margin-top:5px;}
+.mid{ border-bottom:1px solid #ccc;}
+.last{}
+.item .number{float:left;width:70%; border-right:1px solid #ccc;}
+.item .times{text-align:center;}
+
+.wrap{margin:0 auto;width:960px;} 

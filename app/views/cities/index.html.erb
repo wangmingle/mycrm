@@ -1,0 +1,25 @@
+<h4>城市列表</h4>
+<%= link_to t('helpers.links.new'), new_city_path, :class => "btn btn-mini nav pull-right"  %>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Status</th>
+    <th>Memo</th>
+    <th>操作</th>
+  </tr>
+
+<% @cities.each do |city| %>
+  <tr>
+    <td><%= city.name %></td>
+    <td><%= city.status %></td>
+    <td><%= city.memo %></td>
+    <td>
+    <%= link_to '编辑', edit_city_path(city), :class => 'btn btn-mini btn-success', :style => "color:white"  %>
+    <%= link_to '删除', city, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

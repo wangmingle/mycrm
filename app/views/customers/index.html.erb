@@ -1,0 +1,32 @@
+<h4>单位列表</h4>
+<%= link_to t('helpers.links.new'), new_customer_path, :class => "btn btn-mini nav pull-right" %>
+
+<table class="table table-striped">
+  <tr>
+    <th>ID</th>
+    <th>单位名称</th>
+    <th>录入时间</th>
+    <th>修改时间</th>
+    <th>库名</th>
+    <th>人员</th>
+    <th>操作</th>
+  </tr>
+
+<% @customers.each do |customer| %>
+  <tr>
+    <td><%= customer.id %></td>
+    <td><%= customer.name %></td>
+    <td><%= customer.created_at.to_s[0, 19] %></td>
+    <td><%= customer.updated_at.to_s[0, 19] %></td>
+    <td><%= (customer.status == 0 ) ? '会员库' : (customer.status == 1) ? '重点库' :(customer.status == 3) ? '垃圾库' : '临时库' %>
+    </td>
+    <td> <%= link_to t('.Show', :default => t('helpers.links.show')), customer %>
+    </td>
+    <td> 
+        <%= link_to t('.Edit', :default => t('helpers.links.edit')), edit_customer_path(customer), :class => 'btn btn-mini btn-success', :style => "color:white" if can? :update, customer %>
+        <%= link_to t('.Destroy', :default => t('helpers.links.destroy')), customer, method: :delete, data: { confirm: t('helpers.links.confirm') }, :class => 'btn btn-mini btn-danger',:style => "color:white" if current_user.admin? %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @customers, :previous_label => '上一页', :next_label => '下一页'%>

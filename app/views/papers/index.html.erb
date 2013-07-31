@@ -1,0 +1,38 @@
+<h4>文件列表</h4>
+<%= link_to t('helpers.links.new'), new_paper_path, :class => "btn btn-mini nav pull-right" %>
+
+<table class= "table table-striped">
+  <tr>
+    <th>文件名</th>
+    <th>地区</th>
+    <th>创建人</th>
+    <th>创建时间</th>
+    <th>库类型</th>
+    <th>备注</th>
+    <th>操作</th>
+  </tr>
+
+<% @papers.each do |paper| %>
+  <tr>
+    <td>
+        <%if can? :down, paper%>
+        <a href ="images/<%= paper.file_path %>" class = "btn btn-link"><%= paper.file_path %>&nbsp 下载</a>
+        <% else %>
+        <%= paper.file_path%>
+        <% end %>
+    </td>
+    <td><%= paper.city.name if paper.city%></td>
+    <td><%= paper.file_user %></td>
+    <td><%= paper.created_at.to_s[0,19] %></td>
+    <td><%= (paper.file_status == 0) ? 
+    '会员库' : (paper.file_status == 1) ? 
+    '重点库' : (paper.file_status == 3) ? 
+    '垃圾库' : '临时库' %></td>
+    <td><%= paper.file_memo %></td>
+    <td><%= link_to '详情', paper, :class => 'btn btn-mini btn-success', :style => "color:white"  %>
+    <%= link_to '编辑', edit_paper_path(paper), :class => 'btn btn-mini btn-success', :style => "color:white"  %>
+    <%= link_to '删除', paper, method: :delete, data: { confirm: t('helpers.links.confirm') }, :class => 'btn btn-mini btn-danger', :style => "color:white" %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @customers, :previous_label => '上一页', :next_label => '下一页'%>

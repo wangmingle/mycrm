@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>单位名称:</b>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <b>电话:</b>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <b>地址:</b>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <b>网址:</b>
+  <%= @customer.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <b>地区:</b>
+  <%= collection_select(:propers, :propers, City.all, :id, :name, {:selected => @customer.propers}) %>
+</p>
+<p>
+  <b>库类型:</b>
+  <%= select_tag 'customer[status]', options_for_select([['重点库', 1], ['会员库', 0],['临时库', 2], ['垃圾库', 3]], @customer.status), :style=>"width:220px;" %>
+</p>
+<table class ="table" >
+  <tr class ="success"><td>姓名</td><td>职务</td><td>电话</td><td>手机</td><td>email</td><td>传真</td><td>备注</td></tr>
+  <%
+    for i in 0..6 do
+  %>
+     <tr class ="info"><td><%= @customer.link.split('^')[i] %></td><td><%= @customer.zhiwu.split('^')[i] %></td><td><%= @customer.dh.split('^')[i]%></td><td><%= @customer.sj.split('^')[i] %></td><td><%= @customer.em.split('^')[i]%></td><td><%= @customer.cz.split('^')[i] %></td><td><%= @customer.bz .split('^')[i]%></td></tr>
+  <%
+    end
+  %>
+   
+</table>
+<p>
+  <b>传真:</b>
+  <%= @customer.fax %>
+</p>
+
+<%= link_to '编辑', edit_customer_path(@customer)%> |
+<%= link_to '返回', customers_path %>

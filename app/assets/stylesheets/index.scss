@@ -1,0 +1,18 @@
+$size: 12px;
+$white: #FFF;
+$blue: #3B5998;
+$gray: #CCC;
+
+.index {
+  margin-top: 100px;
+  .site {
+    font-size: 26px;
+    text-align: center;
+    color: $blue;
+    margin-top: 10px;
+  }
+  .login {
+    width: 40%;
+    margin: 20px auto;
+  }
+}

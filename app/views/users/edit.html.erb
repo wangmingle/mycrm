@@ -1,0 +1,18 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <h4><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h4>
+</div>
+<%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label '权限', :class => 'control-label' %>
+    <div class="controls">
+      <%= select_tag 'user[role]', options_for_select(['admin', 'operator','read'] , @user.role), :style => "width:100px;" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                users_path, :class => 'btn' %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  file_name: MyString
+  file_path: MyString
+  file_city: MyString
+  file_user: MyString
+  file_status: 1
+  file_type: MyString
+  file_memo: MyString
+
+two:
+  file_name: MyString
+  file_path: MyString
+  file_city: MyString
+  file_user: MyString
+  file_status: 1
+  file_type: MyString
+  file_memo: MyString

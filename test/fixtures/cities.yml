@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: 
+  memo: MyString
+  status: 1
+
+two:
+  name: 
+  memo: MyString
+  status: 1
