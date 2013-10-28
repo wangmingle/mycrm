@@ -10,6 +10,7 @@ gem 'pg'
 gem 'devise'
 gem 'cancan'
 gem 'ap'
+gem 'ncommons',:git => 'git://github.com/weidewang/ncommons.git'
 
 gem 'haml', '~> 3.1.7'
 # Gems used only for assets and not required
