@@ -9,6 +9,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'cancan'
+gem 'ap'
 
 gem 'haml', '~> 3.1.7'
 # Gems used only for assets and not required
